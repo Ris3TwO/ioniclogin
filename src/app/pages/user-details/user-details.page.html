@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles de usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-card>
+    <ion-card-header>
+      <div class="card-title">{{ userInfo.firstName }} {{ userInfo.lastName }}</div>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="content__item"><span>ID</span>: <p>{{ userInfo.bookingId }}</p></div>
+      <div class="content__item"><span>Precio</span>: <p>{{ userInfo.bookingPrice }}</p></div>
+      <div class="content__item"><span>Fecha de creación</span>: <p>{{ userInfo.bookingTime }}</p></div>
+      <div class="content__item"><span>Dirección</span>: <p>{{ userInfo.streetAddress }}</p></div>
+    </ion-card-content>
+  </ion-card> -->
+  <ion-list>
+    <ion-item>
+      <div class="item">
+        <h2>Name</h2>
+        <p>{{ userInfo.firstName }} {{ userInfo.lastName }}</p>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <div class="item">
+        <h3>ID</h3>
+        <p>{{userInfo.bookingId}}</p>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item">
+        <h3>Precio</h3>
+        <p>{{userInfo.bookingPrice}}</p>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item">
+        <h3>Fecha de creación</h3>
+        <p>{{ userInfo.bookingTime }}</p>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item item--direction">
+        <h3>Dirección</h3>
+        <p>{{userInfo.streetAddress}}</p>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
