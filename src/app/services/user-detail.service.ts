@@ -12,17 +12,17 @@ export class UserDetailService {
   public setData(data) { this.data = data }
 
   getData() { return this.data }
-  login(password,email){
+
+  login(password, email){
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'password': password,
         'app': 'APP_BCK'
-        
       })
     };
   
-    return this.http.put(`https://dev.tuten.cl/TutenREST/rest/user/${email}`,null,httpOptions)
+    return this.http.put(`https://dev.tuten.cl/TutenREST/rest/user/${email}`, null, httpOptions)
   }
 
 }

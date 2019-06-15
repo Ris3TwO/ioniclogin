@@ -22,13 +22,13 @@ export class LoginPage implements OnInit {
       if(this.token != null){
         
         localStorage.setItem('token', this.token.sessionTokenBck)
-        console.log("ESTE TOKEN FUE GUARDADO EXITOSAMENTE")
+        console.log("El token ha sido guardado exitosamente")
         this.router.navigateByUrl('home')
       }
 
     },err=>{
 
-      console.log("Ah ocurrido un error", err)
+      console.log("¡Ocurrió un error inesperado!", err)
 
     })
   }

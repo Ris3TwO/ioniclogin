@@ -15,10 +15,10 @@ export class HomePage {
   adminEmail: string = 'testapis@tuten.cl';
   userEmail:  string = 'contacto@tuten.cl';
   token: string;
-items = [];
+  items = [];
   booking: Booking ;
   bookings = [];
-searchText: string =''
+  searchText: string =''
   constructor(
     private api: ApiService,
     public navCtrl: NavController,
@@ -37,10 +37,6 @@ searchText: string =''
     })
   }
 
-
-
-
-
   getUsersData() {
     this.api.getUsersData(this.userEmail, this.token)
       .subscribe(data => {
@@ -51,10 +47,6 @@ searchText: string =''
   showInfo(user) {
     this.userDetailService.setData(user);
     this.navCtrl.navigateForward('/user-details');
-    
-    // let user =  this.bookings.filter(booking => booking.bookingId ==  bookingId)
-    
-    // this.router.navigate(['/user-details', user]);
   }
 
   processData(rawData: any) {
@@ -66,10 +58,6 @@ searchText: string =''
       this.booking.bookingPrice = data["bookingPrice"];
 
       let bookingFields = JSON.parse(data["bookingFields"]);
-    
- 
-      // this.booking.firstName     = bookingFields["tutenUserClient"]["firstName"];
-      //this.booking.lastName      = bookingFields["tutenUserClient"]["lastName"];
       
       this.booking.firstName     = data.tutenUserClient.firstName
       this.booking.lastName      = data.tutenUserClient.lastName
