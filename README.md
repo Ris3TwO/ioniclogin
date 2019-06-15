@@ -9,7 +9,7 @@ Typescript 3.4.5
 
 ## Instalación
 
-git clone https://github.com/Ris3TwO/ioniclogin.git
+>git clone https://github.com/Ris3TwO/ioniclogin.git
 
 npm i -g ionic@4 //De no tener instalado ionic
 
