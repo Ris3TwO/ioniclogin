@@ -13,6 +13,7 @@ export class UserDetailsPage implements OnInit {
     private userDetailService: UserDetailService
   ) { 
     this.userInfo = this.userDetailService.getData();    
+    console.log(this.userInfo)
   }
 
   ngOnInit() {

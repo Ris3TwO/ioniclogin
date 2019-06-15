@@ -1,54 +1,51 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="default">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Detalles de usuario</ion-title>
+    <ion-title>Detalles del Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <!-- <ion-card>
-    <ion-card-header>
-      <div class="card-title">{{ userInfo.firstName }} {{ userInfo.lastName }}</div>
-    </ion-card-header>
-    <ion-card-content>
-      <div class="content__item"><span>ID</span>: <p>{{ userInfo.bookingId }}</p></div>
-      <div class="content__item"><span>Precio</span>: <p>{{ userInfo.bookingPrice }}</p></div>
-      <div class="content__item"><span>Fecha de creación</span>: <p>{{ userInfo.bookingTime }}</p></div>
-      <div class="content__item"><span>Dirección</span>: <p>{{ userInfo.streetAddress }}</p></div>
-    </ion-card-content>
-  </ion-card> -->
   <ion-list>
     <ion-item>
       <div class="item">
-        <h2>Nombre</h2>
-        <p>{{ userInfo.firstName }} {{ userInfo.lastName }}</p>
+        <ion-label>
+          <h3>Nombre</h3>
+          <p class="item-p">{{ userInfo.firstName }} {{ userInfo.lastName }}</p>
+        </ion-label>
       </div>
     </ion-item>
 
     <ion-item>
       <div class="item">
-        <h3>ID</h3>
-        <p>{{userInfo.bookingId}}</p>
+        <ion-label>
+          <h3>Booking ID</h3>
+          <p class="item-p">{{ userInfo.bookingId }}</p>
+        </ion-label>
       </div>
     </ion-item>
     <ion-item>
       <div class="item">
-        <h3>Precio</h3>
-        <p>{{userInfo.bookingPrice}}</p>
+        <ion-label>
+          <h3>Precio</h3>
+          <p class="item-p">{{ userInfo.bookingPrice | currency: 'CLP' }}</p>
+        </ion-label>
       </div>
     </ion-item>
     <ion-item>
       <div class="item">
-        <h3>Fecha de creación</h3>
-        <p>{{ userInfo.bookingTime }}</p>
+        <ion-label>
+          <h3>Fecha de Creación</h3>
+          <p class="item-p">{{ userInfo.bookingTime | date: 'short' }}</p>
+        </ion-label>
       </div>
     </ion-item>
     <ion-item>
-      <div class="item item--direction">
+      <div class="item item-address">
         <h3>Dirección</h3>
-        <p>{{userInfo.streetAddress}}</p>
+        <p class="item-p">{{ userInfo.streetAddress }}</p>
       </div>
     </ion-item>
   </ion-list>

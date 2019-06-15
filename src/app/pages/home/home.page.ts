@@ -66,9 +66,13 @@ searchText: string =''
       this.booking.bookingPrice = data["bookingPrice"];
 
       let bookingFields = JSON.parse(data["bookingFields"]);
-
-      this.booking.firstName     = bookingFields["firstName"];
-      this.booking.lastName      = bookingFields["lastName"];
+    
+ 
+      // this.booking.firstName     = bookingFields["tutenUserClient"]["firstName"];
+      //this.booking.lastName      = bookingFields["tutenUserClient"]["lastName"];
+      
+      this.booking.firstName     = data.tutenUserClient.firstName
+      this.booking.lastName      = data.tutenUserClient.lastName
       this.booking.streetAddress = bookingFields["location"]["streetAddress"];
     
       this.bookings.push(this.booking);

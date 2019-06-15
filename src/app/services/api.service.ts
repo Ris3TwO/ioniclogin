@@ -47,7 +47,7 @@ export class ApiService {
     httpOptions.headers =
       httpOptions.headers.append('adminemail', 'testapis@tuten.cl');
     httpOptions.headers =
-      httpOptions.headers.append('token', token);
+      httpOptions.headers.append('token', localStorage.getItem('token'));
 
     // Delete header
     httpOptions.headers =
