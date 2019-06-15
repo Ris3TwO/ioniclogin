@@ -34,24 +34,13 @@ export class ApiService {
     }
   }
 
-  getAccessToken(email: string): Observable<any> {
-    const URL = `${API_URL}/${email}`;
-    httpOptions.headers =
-      httpOptions.headers.append('Password', '1234');
-
-    return this.http.put<[]>(URL, this.dato, httpOptions);
-  }
-
   getUsersData(email: string, token: string) {    
     const URL = `${API_URL}/${email}/bookings?current=true`;
     httpOptions.headers =
-      httpOptions.headers.append('adminemail', 'testapis@tuten.cl');
+      httpOptions.headers.append('adminemail', localStorage.getItem('email'));
     httpOptions.headers =
       httpOptions.headers.append('token', localStorage.getItem('token'));
 
-    // Delete header
-    httpOptions.headers =
-      httpOptions.headers.delete('Password');
 
     return this.http.get<[]>(URL, httpOptions);
   }

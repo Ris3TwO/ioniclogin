@@ -12,9 +12,9 @@ import { Booking } from "../../type/booking";
 })
 
 export class HomePage {
-  adminEmail: string = 'testapis@tuten.cl';
+  adminEmail: string = localStorage.getItem('email');
   userEmail:  string = 'contacto@tuten.cl';
-  token: string;
+  token: string = localStorage.getItem('token');
   items = [];
   booking: Booking ;
   bookings = [];
@@ -25,31 +25,25 @@ export class HomePage {
     public userDetailService: UserDetailService
    
     ) {
-    this.inicial()
+    this.start()
     }
 
-  getToken() {
-    this.api.getAccessToken(this.adminEmail)
-      .subscribe(data => {
-        this.token = data['sessionTokenBck'];
-
-        this.getUsersData();
-    })
-  }
-
-  getUsersData() {
+  getUsersData()
+  {
     this.api.getUsersData(this.userEmail, this.token)
       .subscribe(data => {
         this.processData(data);
       });
   }
 
-  showInfo(user) {
+  showInfo(user)
+  {
     this.userDetailService.setData(user);
     this.navCtrl.navigateForward('/user-details');
   }
 
-  processData(rawData: any) {
+  processData(rawData: any)
+  {
     for(let data of rawData ){
 
       this.booking              = new Booking();
@@ -64,63 +58,35 @@ export class HomePage {
       this.booking.streetAddress = bookingFields["location"]["streetAddress"];
     
       this.bookings.push(this.booking);
-    
     }    
   }
   
-  
-
-
-
-
-
-
-
-
-inicial(){
-  this.items=this.bookings
-}
-
-
-
-
-
+  start()
+  {
+    this.items = this.bookings
+  }
  
-  getItems(ev: any) {
-    // Reset items back to all of the items
-    
-this.inicial()
-    // set val to the value of the searchbar
+  getItems(ev: any)
+  {
+    // Restablece los elementos de nuevo para mostrar todos los elementos
+    this.start()
+
+    // Establece una variable al valor de la barra de búsqueda
     const val = ev.target.value;
 
-    // if the value is an empty string don't filter the items
-    if (val && val.trim() != '') {
-      this.items = this.items.filter((item) => {
+    // Si el valor es una cadena vacía, no filtrará los elementos
+    if (val && val.trim() != '')
+    {
+      this.items = this.items.filter((item) =>
+      {
         return (JSON.stringify(item.bookingId).toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  ngOnInit() { this.getToken(); }
+  ngOnInit()
+  {
+    // Obtiene los datos
+    this.getUsersData()
+  }
 }

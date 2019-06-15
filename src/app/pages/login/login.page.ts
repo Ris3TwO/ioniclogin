@@ -17,11 +17,12 @@ export class LoginPage implements OnInit {
   }
 
   autenticar(){
-    this.api.login(this.password,this.email).subscribe(response=>{
+    this.api.login(this.password, this.email).subscribe(response=>{
       this.token = response;
       if(this.token != null){
         
         localStorage.setItem('token', this.token.sessionTokenBck)
+        localStorage.setItem('email', this.email)
         console.log("El token ha sido guardado exitosamente")
         this.router.navigateByUrl('home')
       }
