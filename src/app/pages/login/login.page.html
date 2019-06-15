@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Ingreso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="loginUser()">
+    <ion-list>
+      <ion-item text-center class="form-img">
+        <ion-img height="90px" width="120px" src="https://interfell.com/inicio/images/interfell_logo1.png"></ion-img>
+      </ion-item>
+      <ion-item class="form-control">
+        <ion-icon name="person" item-left></ion-icon>
+        
+        <ion-input  type="text" placeholder="test@tuten.cl"></ion-input>
+      </ion-item>
+      <ion-item class="form-control">
+        <ion-icon name="key" item-left></ion-icon>
+        
+        <ion-input  type="password" placeholder="12345678"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding class="form-submit">
+      <ion-button expand="block" type="submit">Ingresar</ion-button>
+    </div>
+  </form>
+</ion-content>
