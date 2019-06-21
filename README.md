@@ -1,6 +1,6 @@
 # Prueba Interfell Ionic
 
-Este proyecto fue generado con [IONIC] en su versión 3.
+Este proyecto fue generado con [IONIC] en su versión 4.
 
 ## Requisitos
 
